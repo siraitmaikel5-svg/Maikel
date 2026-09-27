@@ -3,97 +3,630 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biodata Diri</title>
-    <link rel="stylesheet" href="style.css">
+
+    <title>Michael Gamaliel Sirait | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080808;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #ff2222;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff3333;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff3333;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px 50px;
+
+            background:
+                radial-gradient(circle at center, #401010 0%, #120505 35%, #050505 75%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .profile-circle {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            border: 4px solid #ff2222;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 55px;
+            font-weight: bold;
+            color: #ff3333;
+
+            background: #111;
+            box-shadow: 0 0 35px rgba(255, 30, 30, 0.7);
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 span {
+            color: #ff3333;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #cccccc;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 30px;
+            background: #ff2222;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 0 15px rgba(255, 30, 30, 0.5);
+        }
+
+        .button:hover {
+            background: #cc0000;
+            transform: translateY(-3px);
+        }
+
+        /* GENERAL SECTION */
+        section {
+            padding: 90px 8%;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .title h2 {
+            font-size: 35px;
+            color: #ff3333;
+            margin-bottom: 10px;
+        }
+
+        .title p {
+            color: #aaa;
+        }
+
+        /* ABOUT */
+        .about {
+            background: #0d0d0d;
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .about-box {
+            background: #151515;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #292929;
+            transition: 0.3s;
+        }
+
+        .about-box:hover {
+            border-color: #ff2222;
+            transform: translateY(-5px);
+        }
+
+        .about-box h3 {
+            color: #ff3333;
+            margin-bottom: 15px;
+        }
+
+        /* BIODATA */
+        .biodata {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 18px 20px;
+            margin-bottom: 10px;
+            background: #151515;
+            border-left: 4px solid #ff2222;
+            border-radius: 5px;
+        }
+
+        .data-row strong {
+            color: #ff4444;
+        }
+
+        /* SKILLS */
+        .skills {
+            background: #0d0d0d;
+        }
+
+        .skill-container {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: #151515;
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px;
+            border: 1px solid #292929;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            border-color: #ff2222;
+            box-shadow: 0 0 20px rgba(255, 30, 30, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .skill-card .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            color: #ff3333;
+        }
+
+        /* PROJECT */
+        .project-container {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            background: #151515;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #292929;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: #ff2222;
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            color: #ff3333;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #bbb;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: #0d0d0d;
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 700px;
+            margin: auto;
+            background: #151515;
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid #292929;
+        }
+
+        .contact-box p {
+            margin: 15px 0;
+        }
+
+        .contact-box span {
+            color: #ff3333;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #050505;
+            border-top: 1px solid #222;
+            color: #888;
+        }
+
+        footer span {
+            color: #ff3333;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav ul {
+                gap: 10px;
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-container {
+                grid-template-columns: 1fr;
+            }
+
+            .project-container {
+                grid-template-columns: 1fr;
+            }
+
+            .data-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            section {
+                padding: 70px 5%;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <div class="card">
-        <!-- Foto Profil -->
-        <div class="profile-header">
-            <img src="https://via.placeholder.com/150" alt="Foto Profil" class="profile-img">
-            <h2>Nama Lengkap Anda</h2>
-            <p class="subtitle">Siswa / Web Developer</p>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">MICHAEL.</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#biodata">Biodata</a></li>
+            <li><a href="#skills">Skill</a></li>
+            <li><a href="#project">Project</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HOME -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="profile-circle">
+                MG
+            </div>
+
+            <h1>
+                Hi, I'm <span>Michael Gamaliel</span>
+            </h1>
+
+            <p>
+                Siswa XI TKJ 4 | Networking Enthusiast | Future Engineer
+            </p>
+
+            <a href="#biodata" class="button">
+                Lihat Biodata
+            </a>
+
         </div>
 
-        <hr>
+    </section>
 
-        <!-- Informasi Pribadi -->
-        <div class="section">
-            <h3>Informasi Pribadi</h3>
-            <table>
-                <tr>
-                    <td><b>Nama Lengkap</b></td>
-                    <td>:</td>
-                    <td>Nama Lengkap Anda</td>
-                </tr>
-                <tr>
-                    <td><b>Nama Panggilan</b></td>
-                    <td>:</td>
-                    <td>Panggilan</td>
-                </tr>
-                <tr>
-                    <td><b>Tempat, Tgl Lahir</b></td>
-                    <td>:</td>
-                    <td>Jakarta, 1 Januari 2008</td>
-                </tr>
-                <tr>
-                    <td><b>Jenis Kelamin</b></td>
-                    <td>:</td>
-                    <td>Laki-laki / Perempuan</td>
-                </tr>
-                <tr>
-                    <td><b>Agama</b></td>
-                    <td>:</td>
-                    <td>Islam</td>
-                </tr>
-                <tr>
-                    <td><b>Alamat</b></td>
-                    <td>:</td>
-                    <td>Jl. Mawar No. 123, Jakarta</td>
-                </tr>
-            </table>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+        <div class="title">
+            <h2>About Me</h2>
+            <p>Kenalan sedikit dengan saya</p>
         </div>
 
-        <hr>
+        <div class="about-container">
 
-        <!-- Kontak -->
-        <div class="section">
-            <h3>Kontak</h3>
-            <table>
-                <tr>
-                    <td><b>Email</b></td>
-                    <td>:</td>
-                    <td>emailanda@gmail.com</td>
-                </tr>
-                <tr>
-                    <td><b>No. HP / WA</b></td>
-                    <td>:</td>
-                    <td>0812-3456-7890</td>
-                </tr>
-            </table>
+            <div class="about-box">
+
+                <h3>👋 Tentang Saya</h3>
+
+                <p>
+                    Halo! Nama saya Michael Gamaliel Sirait.
+                    Saya adalah siswa kelas XI TKJ 4 yang
+                    tertarik dengan dunia teknologi, komputer,
+                    jaringan dan gaming.
+                </p>
+
+            </div>
+
+            <div class="about-box">
+
+                <h3>🎯 Cita-Cita</h3>
+
+                <p>
+                    Saya ingin terus belajar tentang teknologi
+                    dan mengembangkan kemampuan di bidang
+                    komputer serta jaringan untuk menjadi
+                    seorang engineer.
+                </p>
+
+            </div>
+
         </div>
 
-        <hr>
+    </section>
 
-        <!-- Hobi & Keahlian -->
-        <div class="section">
-            <h3>Hobi & Keahlian</h3>
-            <p><b>Hobi:</b></p>
-            <ul>
-                <li>Membaca buku</li>
-                <li>Coding / Pemrograman</li>
-                <li>Bermain musik</li>
-            </ul>
 
-            <p><b>Keahlian:</b></p>
-            <ul>
-                <li>HTML & CSS</li>
-                <li>Bahasa Inggris</li>
-                <li>Desain Grafis</li>
-            </ul>
+    <!-- BIODATA -->
+    <section id="biodata">
+
+        <div class="title">
+            <h2>Biodata</h2>
+            <p>Data diri saya</p>
         </div>
-    </div>
+
+        <div class="biodata">
+
+            <div class="data-row">
+                <strong>Nama</strong>
+                <span>Michael Gamaliel Sirait</span>
+            </div>
+
+            <div class="data-row">
+                <strong>Kelas</strong>
+                <span>XI TKJ 4</span>
+            </div>
+
+            <div class="data-row">
+                <strong>Jurusan</strong>
+                <span>Teknik Komputer dan Jaringan</span>
+            </div>
+
+            <div class="data-row">
+                <strong>Hobi</strong>
+                <span>Futsal & Bermain Game</span>
+            </div>
+
+            <div class="data-row">
+                <strong>Cita-Cita</strong>
+                <span>Engineer</span>
+            </div>
+
+            <div class="data-row">
+                <strong>Minat</strong>
+                <span>Networking, Server & Technology</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section class="skills" id="skills">
+
+        <div class="title">
+            <h2>My Skills</h2>
+            <p>Kemampuan yang sedang saya pelajari</p>
+        </div>
+
+        <div class="skill-container">
+
+            <div class="skill-card">
+                <div class="icon">🌐</div>
+                <h3>Networking</h3>
+                <p>
+                    Mempelajari LAN, WAN, IP Address,
+                    DHCP, DNS dan jaringan komputer.
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <div class="icon">🐧</div>
+                <h3>Linux</h3>
+                <p>
+                    Belajar menggunakan Ubuntu Server
+                    dan Debian untuk kebutuhan server.
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <div class="icon">🐳</div>
+                <h3>Docker</h3>
+                <p>
+                    Mempelajari container, Docker Compose
+                    dan deployment aplikasi.
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <div class="icon">💻</div>
+                <h3>HTML & CSS</h3>
+                <p>
+                    Membuat website sederhana menggunakan
+                    HTML dan CSS.
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <div class="icon">🖥️</div>
+                <h3>Server</h3>
+                <p>
+                    Mempelajari web server, remote server
+                    dan konfigurasi server Linux.
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <div class="icon">🎮</div>
+                <h3>Gaming</h3>
+                <p>
+                    Salah satu hobi saya adalah bermain game
+                    dan mengikuti perkembangan teknologi gaming.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECT -->
+    <section id="project">
+
+        <div class="title">
+            <h2>My Project</h2>
+            <p>Beberapa project yang pernah/sedang dipelajari</p>
+        </div>
+
+        <div class="project-container">
+
+            <div class="project-card">
+                <h3>🌐 Web Server</h3>
+                <p>
+                    Membuat dan menjalankan web server
+                    menggunakan Apache2 pada Linux.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <h3>🐳 Docker</h3>
+                <p>
+                    Menjalankan aplikasi menggunakan
+                    container Docker dan Docker Compose.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <h3>📡 DHCP Server</h3>
+                <p>
+                    Membuat DHCP server untuk memberikan
+                    IP address secara otomatis kepada client.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+
+        <div class="title">
+            <h2>Contact</h2>
+            <p>Informasi kontak</p>
+        </div>
+
+        <div class="contact-box">
+
+            <p>
+                👤 <span>Nama:</span>
+                Michael Gamaliel Sirait
+            </p>
+
+            <p>
+                🎓 <span>Kelas:</span>
+                XI TKJ 4
+            </p>
+
+            <p>
+                💻 <span>Bidang:</span>
+                Teknik Komputer dan Jaringan
+            </p>
+
+            <p>
+                🎮 <span>Hobi:</span>
+                Bermain Game & Futsal
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 <span>Michael Gamaliel Sirait</span>.
+            All Rights Reserved.
+        </p>
+
+    </footer>
 
 </body>
 </html>
