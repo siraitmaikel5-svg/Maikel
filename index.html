@@ -1,12 +1,14 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Michael Gamaliel Sirait | Portfolio</title>
+    <title>Michael Gamaliel | Portfolio</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -15,618 +17,984 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #080808;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #050505;
             color: white;
-            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* BACKGROUND */
+        body::before {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: #ff0000;
+            filter: blur(180px);
+            opacity: 0.12;
+            top: -150px;
+            left: -150px;
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: #ff0000;
+            filter: blur(180px);
+            opacity: 0.08;
+            bottom: -200px;
+            right: -150px;
+            z-index: -1;
         }
 
         /* NAVBAR */
+
         nav {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            padding: 18px 8%;
+            padding: 20px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(255, 0, 0, 0.3);
+
             z-index: 1000;
-            border-bottom: 1px solid #ff2222;
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ff3333;
+            font-size: 25px;
+            font-weight: 900;
+            color: #ff2020;
+            text-shadow: 0 0 15px #ff0000;
+        }
+
+        .logo span {
+            color: white;
         }
 
         nav ul {
             display: flex;
+            gap: 30px;
             list-style: none;
-            gap: 25px;
         }
 
         nav ul li a {
-            color: white;
+            color: #ddd;
             text-decoration: none;
+            font-size: 14px;
             font-weight: bold;
             transition: 0.3s;
         }
 
         nav ul li a:hover {
-            color: #ff3333;
+            color: #ff2020;
+            text-shadow: 0 0 10px #ff0000;
         }
 
         /* HERO */
+
         .hero {
             min-height: 100vh;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 100px 20px 50px;
+
+            padding: 120px 20px 50px;
 
             background:
-                radial-gradient(circle at center, #401010 0%, #120505 35%, #050505 75%);
+                linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.9)),
+                radial-gradient(circle at center, #3b0000, #050505 60%);
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
         }
 
-        .profile-circle {
-            width: 160px;
-            height: 160px;
+        .status {
+            display: inline-block;
+            padding: 8px 18px;
+            border: 1px solid #ff2020;
+            border-radius: 30px;
+            color: #ff3333;
+            font-size: 13px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 15px rgba(255,0,0,.2);
+        }
+
+        .profile {
+            width: 170px;
+            height: 170px;
+
+            margin: auto;
+            margin-bottom: 30px;
+
             border-radius: 50%;
-            margin: 0 auto 25px;
-            border: 4px solid #ff2222;
 
             display: flex;
             justify-content: center;
             align-items: center;
 
-            font-size: 55px;
-            font-weight: bold;
-            color: #ff3333;
+            font-size: 60px;
+            font-weight: 900;
 
-            background: #111;
-            box-shadow: 0 0 35px rgba(255, 30, 30, 0.7);
+            color: #ff2222;
+
+            background:
+                radial-gradient(circle, #250000, #090909);
+
+            border: 3px solid #ff2222;
+
+            box-shadow:
+                0 0 20px #ff0000,
+                0 0 60px rgba(255,0,0,.4);
+
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
         }
 
         .hero h1 {
-            font-size: 50px;
-            margin-bottom: 10px;
+            font-size: clamp(40px, 7vw, 80px);
+            line-height: 1;
+            margin-bottom: 20px;
         }
 
         .hero h1 span {
-            color: #ff3333;
+            color: #ff2020;
+            text-shadow: 0 0 20px rgba(255,0,0,.6);
         }
 
-        .hero p {
-            font-size: 20px;
-            color: #cccccc;
-            margin-bottom: 30px;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 13px 30px;
-            background: #ff2222;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: 0.3s;
-            box-shadow: 0 0 15px rgba(255, 30, 30, 0.5);
-        }
-
-        .button:hover {
-            background: #cc0000;
-            transform: translateY(-3px);
-        }
-
-        /* GENERAL SECTION */
-        section {
-            padding: 90px 8%;
-        }
-
-        .title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .title h2 {
-            font-size: 35px;
-            color: #ff3333;
-            margin-bottom: 10px;
-        }
-
-        .title p {
+        .typing {
             color: #aaa;
+            font-size: 20px;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .btn-primary {
+            color: white;
+            background: #e60000;
+            box-shadow: 0 0 20px rgba(255,0,0,.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 35px rgba(255,0,0,.7);
+        }
+
+        .btn-outline {
+            color: white;
+            border: 1px solid #555;
+        }
+
+        .btn-outline:hover {
+            border-color: #ff2020;
+            color: #ff2020;
+        }
+
+        /* GENERAL */
+
+        section {
+            padding: 110px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title small {
+            color: #ff2222;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            margin-top: 10px;
+        }
+
+        .section-title p {
+            color: #888;
+            margin-top: 10px;
         }
 
         /* ABOUT */
-        .about {
-            background: #0d0d0d;
-        }
 
         .about-container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: auto;
+
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+
+            gap: 25px;
         }
 
-        .about-box {
-            background: #151515;
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid #292929;
-            transition: 0.3s;
+        .glass {
+            background: rgba(255,255,255,.035);
+            border: 1px solid rgba(255,255,255,.08);
+
+            border-radius: 20px;
+
+            padding: 35px;
+
+            backdrop-filter: blur(10px);
+
+            transition: .3s;
         }
 
-        .about-box:hover {
-            border-color: #ff2222;
-            transform: translateY(-5px);
+        .glass:hover {
+            border-color: rgba(255,0,0,.5);
+            transform: translateY(-7px);
+            box-shadow: 0 15px 40px rgba(255,0,0,.08);
         }
 
-        .about-box h3 {
-            color: #ff3333;
+        .glass h3 {
+            color: #ff2222;
             margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .glass p {
+            color: #aaa;
+            line-height: 1.8;
         }
 
         /* BIODATA */
+
         .biodata {
-            max-width: 900px;
+            max-width: 1000px;
             margin: auto;
         }
 
-        .data-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 18px 20px;
+        .data {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+
+            padding: 20px;
+
             margin-bottom: 10px;
-            background: #151515;
-            border-left: 4px solid #ff2222;
-            border-radius: 5px;
+
+            background: rgba(255,255,255,.03);
+
+            border-left: 3px solid #ff2222;
+
+            border-radius: 8px;
+
+            transition: .3s;
         }
 
-        .data-row strong {
-            color: #ff4444;
+        .data:hover {
+            background: rgba(255,0,0,.06);
+            transform: translateX(8px);
+        }
+
+        .data strong {
+            color: #ff3333;
+        }
+
+        .data span {
+            color: #ddd;
         }
 
         /* SKILLS */
-        .skills {
-            background: #0d0d0d;
-        }
 
-        .skill-container {
-            max-width: 900px;
+        .skills-container {
+            max-width: 1100px;
             margin: auto;
+
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+
             gap: 20px;
         }
 
-        .skill-card {
-            background: #151515;
+        .skill {
             padding: 30px;
-            text-align: center;
-            border-radius: 15px;
-            border: 1px solid #292929;
-            transition: 0.3s;
+
+            background: linear-gradient(
+                145deg,
+                rgba(255,0,0,.08),
+                rgba(255,255,255,.025)
+            );
+
+            border: 1px solid rgba(255,255,255,.08);
+
+            border-radius: 18px;
+
+            transition: .3s;
         }
 
-        .skill-card:hover {
+        .skill:hover {
+            transform: translateY(-8px);
             border-color: #ff2222;
-            box-shadow: 0 0 20px rgba(255, 30, 30, 0.2);
-            transform: translateY(-5px);
         }
 
-        .skill-card .icon {
+        .skill-icon {
             font-size: 45px;
             margin-bottom: 15px;
         }
 
-        .skill-card h3 {
-            color: #ff3333;
+        .skill h3 {
+            margin-bottom: 15px;
+        }
+
+        .skill p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        .bar {
+            height: 6px;
+            background: #222;
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .bar div {
+            height: 100%;
+            background: #ff2222;
+            box-shadow: 0 0 10px #ff0000;
+        }
+
+        .html {
+            width: 80%;
+        }
+
+        .network {
+            width: 75%;
+        }
+
+        .linux {
+            width: 70%;
+        }
+
+        .docker {
+            width: 65%;
+        }
+
+        .server {
+            width: 70%;
+        }
+
+        .gaming {
+            width: 90%;
         }
 
         /* PROJECT */
-        .project-container {
-            max-width: 1000px;
+
+        .projects {
+            max-width: 1100px;
             margin: auto;
+
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3,1fr);
+
             gap: 20px;
         }
 
-        .project-card {
-            background: #151515;
+        .project {
+            min-height: 250px;
+
             padding: 30px;
-            border-radius: 15px;
-            border: 1px solid #292929;
-            transition: 0.3s;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    transparent,
+                    rgba(0,0,0,.95)
+                ),
+                linear-gradient(145deg,#260000,#101010);
+
+            border: 1px solid #222;
+
+            transition: .4s;
         }
 
-        .project-card:hover {
+        .project:hover {
+            transform: scale(1.03);
             border-color: #ff2222;
-            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(255,0,0,.15);
         }
 
-        .project-card h3 {
-            color: #ff3333;
+        .project-number {
+            color: #ff2222;
+            font-size: 14px;
             margin-bottom: 10px;
         }
 
-        .project-card p {
-            color: #bbb;
+        .project h3 {
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: #aaa;
+            font-size: 14px;
         }
 
         /* CONTACT */
-        .contact {
-            background: #0d0d0d;
-            text-align: center;
-        }
 
         .contact-box {
-            max-width: 700px;
+            max-width: 800px;
             margin: auto;
-            background: #151515;
-            padding: 40px;
-            border-radius: 15px;
-            border: 1px solid #292929;
+
+            text-align: center;
+
+            padding: 60px 30px;
+
+            border-radius: 25px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(255,0,0,.12),
+                    transparent 60%
+                );
+
+            border: 1px solid rgba(255,0,0,.2);
+        }
+
+        .contact-box h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
         }
 
         .contact-box p {
-            margin: 15px 0;
+            color: #999;
+            margin-bottom: 30px;
         }
 
-        .contact-box span {
-            color: #ff3333;
-            font-weight: bold;
+        .social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social a {
+            padding: 12px 20px;
+            color: white;
+            text-decoration: none;
+
+            border: 1px solid #333;
+
+            border-radius: 8px;
+
+            transition: .3s;
+        }
+
+        .social a:hover {
+            border-color: #ff2222;
+            color: #ff2222;
         }
 
         /* FOOTER */
+
         footer {
+            padding: 30px;
             text-align: center;
-            padding: 25px;
-            background: #050505;
-            border-top: 1px solid #222;
-            color: #888;
+            border-top: 1px solid #1b1b1b;
+            color: #666;
         }
 
         footer span {
-            color: #ff3333;
+            color: #ff2222;
         }
 
         /* RESPONSIVE */
-        @media (max-width: 768px) {
+
+        @media(max-width:800px) {
 
             nav {
-                padding: 15px 5%;
+                padding: 18px 5%;
             }
 
             nav ul {
-                gap: 10px;
-                font-size: 13px;
+                display: none;
+            }
+
+            .about-container,
+            .skills-container,
+            .projects {
+                grid-template-columns: 1fr;
             }
 
             .hero h1 {
-                font-size: 35px;
+                font-size: 45px;
             }
 
-            .hero p {
-                font-size: 17px;
-            }
-
-            .about-container {
+            .data {
                 grid-template-columns: 1fr;
-            }
-
-            .skill-container {
-                grid-template-columns: 1fr;
-            }
-
-            .project-container {
-                grid-template-columns: 1fr;
-            }
-
-            .data-row {
-                flex-direction: column;
                 gap: 5px;
             }
 
             section {
-                padding: 70px 5%;
+                padding: 80px 5%;
             }
+
         }
+
     </style>
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
-    <nav>
-        <div class="logo">MICHAEL.</div>
 
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#biodata">Biodata</a></li>
-            <li><a href="#skills">Skill</a></li>
-            <li><a href="#project">Project</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+    <div class="logo">
+        MG<span>.</span>
+    </div>
+
+    <ul>
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#biodata">BIODATA</a></li>
+        <li><a href="#skills">SKILLS</a></li>
+        <li><a href="#project">PROJECT</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+    </ul>
+
+</nav>
 
 
-    <!-- HOME -->
-    <section class="hero" id="home">
+<!-- ================= HERO ================= -->
 
-        <div class="hero-content">
+<section class="hero" id="home">
 
-            <div class="profile-circle">
-                MG
-            </div>
+    <div class="hero-content">
 
-            <h1>
-                Hi, I'm <span>Michael Gamaliel</span>
-            </h1>
+        <div class="status">
+            ● ONLINE • XI TKJ 4
+        </div>
 
-            <p>
-                Siswa XI TKJ 4 | Networking Enthusiast | Future Engineer
-            </p>
+        <div class="profile">
+            MG
+        </div>
 
-            <a href="#biodata" class="button">
-                Lihat Biodata
+        <h1>
+            MICHAEL <span>GAMALIEL</span>
+        </h1>
+
+        <p class="typing">
+            Student • Gamer • Networking Enthusiast • Future Engineer
+        </p>
+
+        <div class="buttons">
+
+            <a href="#about" class="btn btn-primary">
+                EXPLORE PROFILE
+            </a>
+
+            <a href="#project" class="btn btn-outline">
+                MY PROJECT
             </a>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- ABOUT -->
-    <section class="about" id="about">
+<!-- ================= ABOUT ================= -->
 
-        <div class="title">
-            <h2>About Me</h2>
-            <p>Kenalan sedikit dengan saya</p>
-        </div>
+<section id="about">
 
-        <div class="about-container">
+    <div class="section-title">
 
-            <div class="about-box">
+        <small>WHO AM I?</small>
 
-                <h3>👋 Tentang Saya</h3>
+        <h2>About Me</h2>
 
-                <p>
-                    Halo! Nama saya Michael Gamaliel Sirait.
-                    Saya adalah siswa kelas XI TKJ 4 yang
-                    tertarik dengan dunia teknologi, komputer,
-                    jaringan dan gaming.
-                </p>
+        <p>Kenalan dengan saya</p>
 
-            </div>
-
-            <div class="about-box">
-
-                <h3>🎯 Cita-Cita</h3>
-
-                <p>
-                    Saya ingin terus belajar tentang teknologi
-                    dan mengembangkan kemampuan di bidang
-                    komputer serta jaringan untuk menjadi
-                    seorang engineer.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
+    </div>
 
 
-    <!-- BIODATA -->
-    <section id="biodata">
+    <div class="about-container">
 
-        <div class="title">
-            <h2>Biodata</h2>
-            <p>Data diri saya</p>
-        </div>
+        <div class="glass">
 
-        <div class="biodata">
-
-            <div class="data-row">
-                <strong>Nama</strong>
-                <span>Michael Gamaliel Sirait</span>
-            </div>
-
-            <div class="data-row">
-                <strong>Kelas</strong>
-                <span>XI TKJ 4</span>
-            </div>
-
-            <div class="data-row">
-                <strong>Jurusan</strong>
-                <span>Teknik Komputer dan Jaringan</span>
-            </div>
-
-            <div class="data-row">
-                <strong>Hobi</strong>
-                <span>Futsal & Bermain Game</span>
-            </div>
-
-            <div class="data-row">
-                <strong>Cita-Cita</strong>
-                <span>Engineer</span>
-            </div>
-
-            <div class="data-row">
-                <strong>Minat</strong>
-                <span>Networking, Server & Technology</span>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- SKILLS -->
-    <section class="skills" id="skills">
-
-        <div class="title">
-            <h2>My Skills</h2>
-            <p>Kemampuan yang sedang saya pelajari</p>
-        </div>
-
-        <div class="skill-container">
-
-            <div class="skill-card">
-                <div class="icon">🌐</div>
-                <h3>Networking</h3>
-                <p>
-                    Mempelajari LAN, WAN, IP Address,
-                    DHCP, DNS dan jaringan komputer.
-                </p>
-            </div>
-
-            <div class="skill-card">
-                <div class="icon">🐧</div>
-                <h3>Linux</h3>
-                <p>
-                    Belajar menggunakan Ubuntu Server
-                    dan Debian untuk kebutuhan server.
-                </p>
-            </div>
-
-            <div class="skill-card">
-                <div class="icon">🐳</div>
-                <h3>Docker</h3>
-                <p>
-                    Mempelajari container, Docker Compose
-                    dan deployment aplikasi.
-                </p>
-            </div>
-
-            <div class="skill-card">
-                <div class="icon">💻</div>
-                <h3>HTML & CSS</h3>
-                <p>
-                    Membuat website sederhana menggunakan
-                    HTML dan CSS.
-                </p>
-            </div>
-
-            <div class="skill-card">
-                <div class="icon">🖥️</div>
-                <h3>Server</h3>
-                <p>
-                    Mempelajari web server, remote server
-                    dan konfigurasi server Linux.
-                </p>
-            </div>
-
-            <div class="skill-card">
-                <div class="icon">🎮</div>
-                <h3>Gaming</h3>
-                <p>
-                    Salah satu hobi saya adalah bermain game
-                    dan mengikuti perkembangan teknologi gaming.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- PROJECT -->
-    <section id="project">
-
-        <div class="title">
-            <h2>My Project</h2>
-            <p>Beberapa project yang pernah/sedang dipelajari</p>
-        </div>
-
-        <div class="project-container">
-
-            <div class="project-card">
-                <h3>🌐 Web Server</h3>
-                <p>
-                    Membuat dan menjalankan web server
-                    menggunakan Apache2 pada Linux.
-                </p>
-            </div>
-
-            <div class="project-card">
-                <h3>🐳 Docker</h3>
-                <p>
-                    Menjalankan aplikasi menggunakan
-                    container Docker dan Docker Compose.
-                </p>
-            </div>
-
-            <div class="project-card">
-                <h3>📡 DHCP Server</h3>
-                <p>
-                    Membuat DHCP server untuk memberikan
-                    IP address secara otomatis kepada client.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CONTACT -->
-    <section class="contact" id="contact">
-
-        <div class="title">
-            <h2>Contact</h2>
-            <p>Informasi kontak</p>
-        </div>
-
-        <div class="contact-box">
+            <h3>👋 Hello!</h3>
 
             <p>
-                👤 <span>Nama:</span>
-                Michael Gamaliel Sirait
-            </p>
-
-            <p>
-                🎓 <span>Kelas:</span>
-                XI TKJ 4
-            </p>
-
-            <p>
-                💻 <span>Bidang:</span>
-                Teknik Komputer dan Jaringan
-            </p>
-
-            <p>
-                🎮 <span>Hobi:</span>
-                Bermain Game & Futsal
+                Halo! Saya Michael Gamaliel Sirait.
+                Saya merupakan siswa kelas XI TKJ 4
+                yang tertarik dengan dunia komputer,
+                jaringan, server dan teknologi.
             </p>
 
         </div>
 
-    </section>
+
+        <div class="glass">
+
+            <h3>🎯 My Goal</h3>
+
+            <p>
+                Saya ingin terus mengembangkan kemampuan
+                di bidang teknologi dan networking
+                serta memiliki cita-cita menjadi seorang
+                engineer.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
 
 
-    <!-- FOOTER -->
-    <footer>
+<!-- ================= BIODATA ================= -->
+
+<section id="biodata">
+
+    <div class="section-title">
+
+        <small>PLAYER PROFILE</small>
+
+        <h2>Biodata</h2>
+
+        <p>Data diri dan informasi singkat</p>
+
+    </div>
+
+
+    <div class="biodata">
+
+        <div class="data">
+            <strong>Nama</strong>
+            <span>Michael Gamaliel Sirait</span>
+        </div>
+
+        <div class="data">
+            <strong>Kelas</strong>
+            <span>XI TKJ 4</span>
+        </div>
+
+        <div class="data">
+            <strong>Jurusan</strong>
+            <span>Teknik Komputer dan Jaringan</span>
+        </div>
+
+        <div class="data">
+            <strong>Hobi</strong>
+            <span>🎮 Gaming & ⚽ Futsal</span>
+        </div>
+
+        <div class="data">
+            <strong>Cita-Cita</strong>
+            <span>Engineer</span>
+        </div>
+
+        <div class="data">
+            <strong>Minat</strong>
+            <span>Networking • Server • Technology</span>
+        </div>
+
+        <div class="data">
+            <strong>Website</strong>
+            <span>Michael's Personal Portfolio</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SKILLS ================= -->
+
+<section id="skills">
+
+    <div class="section-title">
+
+        <small>MY ABILITIES</small>
+
+        <h2>Skills</h2>
+
+        <p>Kemampuan yang sedang saya pelajari</p>
+
+    </div>
+
+
+    <div class="skills-container">
+
+
+        <div class="skill">
+
+            <div class="skill-icon">🌐</div>
+
+            <h3>Networking</h3>
+
+            <p>
+                LAN, WAN, IP Address, DHCP,
+                DNS dan konfigurasi jaringan.
+            </p>
+
+            <div class="bar">
+                <div class="network"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-icon">🐧</div>
+
+            <h3>Linux</h3>
+
+            <p>
+                Ubuntu Server, Debian,
+                terminal dan konfigurasi server.
+            </p>
+
+            <div class="bar">
+                <div class="linux"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-icon">🐳</div>
+
+            <h3>Docker</h3>
+
+            <p>
+                Container, image,
+                Docker Compose dan deployment.
+            </p>
+
+            <div class="bar">
+                <div class="docker"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-icon">💻</div>
+
+            <h3>HTML & CSS</h3>
+
+            <p>
+                Membuat website dan
+                desain interface sederhana.
+            </p>
+
+            <div class="bar">
+                <div class="html"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-icon">🖥️</div>
+
+            <h3>Server</h3>
+
+            <p>
+                Apache, Web Server,
+                Remote Server dan DHCP.
+            </p>
+
+            <div class="bar">
+                <div class="server"></div>
+            </div>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-icon">🎮</div>
+
+            <h3>Gaming</h3>
+
+            <p>
+                Gaming menjadi salah satu
+                hobi utama saya.
+            </p>
+
+            <div class="bar">
+                <div class="gaming"></div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROJECT ================= -->
+
+<section id="project">
+
+    <div class="section-title">
+
+        <small>MY WORK</small>
+
+        <h2>Projects</h2>
+
+        <p>Project dan pembelajaran saya</p>
+
+    </div>
+
+
+    <div class="projects">
+
+
+        <div class="project">
+
+            <div class="project-number">
+                PROJECT 01
+            </div>
+
+            <h3>🌐 Web Server</h3>
+
+            <p>
+                Membuat web server menggunakan
+                Apache pada Linux.
+            </p>
+
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-number">
+                PROJECT 02
+            </div>
+
+            <h3>🐳 Docker</h3>
+
+            <p>
+                Menjalankan aplikasi menggunakan
+                Docker dan Docker Compose.
+            </p>
+
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-number">
+                PROJECT 03
+            </div>
+
+            <h3>📡 DHCP Server</h3>
+
+            <p>
+                Membuat DHCP Server untuk
+                memberikan IP otomatis kepada client.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+    <div class="contact-box">
+
+        <h2>Let's Connect 🚀</h2>
 
         <p>
-            © 2026 <span>Michael Gamaliel Sirait</span>.
-            All Rights Reserved.
+            Terima kasih sudah mengunjungi
+            portfolio saya.
         </p>
 
-    </footer>
+
+        <div class="social">
+
+            <a href="#">
+                📸 Instagram
+            </a>
+
+            <a href="#">
+                🎮 Gaming
+            </a>
+
+            <a href="#">
+                💻 GitHub
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        © 2026 <span>Michael Gamaliel Sirait</span>
+        — XI TKJ 4
+    </p>
+
+</footer>
+
 
 </body>
 </html>
+```
